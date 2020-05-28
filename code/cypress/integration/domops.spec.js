@@ -27,6 +27,16 @@ describe("UI TESTS", () => {
       .should("be.checked");
     cy.get(".action-checkboxes [type='checkbox']")
       .uncheck(["checkbox1"])
-      . should("not.be.checked");
+      .should("not.be.checked");
+  });
+
+  it("should select the first radio button", () => {
+    cy.get(".action-radios [type='radio']")
+      .check("radio1")
+      .should("be.checked");
+  });
+
+  it("should select apple from the dropdown", () => {
+    cy.get(".action-select").select("apples").should("contain", "apple");
   });
 });
